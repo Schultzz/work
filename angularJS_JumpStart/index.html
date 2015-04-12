@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html ng-app="DemoApp" ng-controller="CarController">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>{{title}}</title>
+    <script src="js/angular.min.js"></script>
+    <script src="js/angular-locale_da.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" />
+</head>
+<body>
+
+ <div class="container">
+
+    <h1>{{title}}</h1>
+
+    <!-- Add your Content here -->
+
+    <h2>
+       Numbers of cars: {{ cars.length }}
+    </h2>
+
+    <div class="row">
+    <div class="col-sm-4" >
+        <input type="search" class="form-control" ng-model="carFilter" />
+    </div>
+ </div>
+
+
+        <table class="table table-striped">
+            <thead>
+            <td>ID</td>
+            <td><a href="" ng-click="predicate = 'year'; reverse=!reverse">Year</a></td>
+            <td><a href="" ng-click="predicate = 'registered'; reverse=!reverse">Registered</a></td>
+            <td><a href="" ng-click="predicate = 'make'; reverse=!reverse">Make</a></td>
+            <td><a href="" ng-click="predicate = 'model'; reverse=!reverse">Model</a></td>
+            <td><a href="" ng-click="predicate = 'description'; reverse=!reverse">Description</a></td>
+            <td><a href="" ng-click="predicate = 'price'; reverse=!reverse">Price</a></td></tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="car in cars | filter: carFilter | orderBy:predicate:reverse" >
+                <td>{{$index+1}}</td>
+                <td>{{car.year}}</td>
+                <td>{{car.registered | date}}</td>
+                <td >{{car.make}}</td>
+                <td >{{car.model}}</td>
+                <td >{{car.description}}</td>
+                <td>{{car.price | currency}}</td>
+            </tr>
+            </tbody>
+
+
+        </table>
+
+
+    <script>
+        var myApp = angular.module('DemoApp',[]);
+        myApp.controller('CarController', ['$scope', function($scope) {
+            var cars = [
+                { year: 1997,registered: 867621600000, make: 'Ford',model: 'E350', description: 'ac, abs, moon', price: 3000 }
+                ,{ year: 1999,registered: 945212400000, make: 'Chevy', model: 'Venture', description: 'None', price: 4900 }
+                ,{ year: 2000,registered: 953766000000, make: 'Chevy', model: 'Venture', description: '', price: 5000 }
+                ,{ year: 1996,registered: 844380000000, make: 'Jeep', model: 'Grand Cherokee',description: 'Air, moon roof,loaded',price: 4799 },
+                { year: 2010,registered: 953766000000, make: 'Audi', model: 'r8', description: 'race car', price: 60000 }
+            ]
+            $scope.cars = cars;
+            $scope.title = "Cars Demo App"
+            $scope.predicate = "year"
+        }]);
+    </script>
+
+</div>
+
+</body>
+</html>
