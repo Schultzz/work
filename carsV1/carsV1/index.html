@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html ng-app="DemoApp" ng-controller="CarController">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>{{title}}</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
+
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-i18n/angular-locale_da-dk.js"></script>
+    <script src="app.js"></script>
+    <script src=""></script>
+</head>
+<body>
+<div class="container">
+
+
+    <h1>{{title}}</h1>
+
+    <h2>Number of cars: {{cars.length}}</h2>
+    <input type="search" ng-model="carfilter" placeholder="Filter cars">
+
+    <div row>
+        <div class="col-md-9">
+            <table class="table">
+                <thead>
+                <tr>
+                    <td>ID</td>
+                    <td><a href="" ng-click="predicate = 'year'; reverse=!reverse">Year</a></td>
+                    <td><a href="" ng-click="predicate = 'registered'; reverse=!reverse">Registered</a></td>
+                    <td><a href="" ng-click="predicate = 'make'; reverse=!reverse">Make</a></td>
+                    <td><a href="" ng-click="predicate = 'model'; reverse=!reverse">Model</a></td>
+                    <td><a href="" ng-click="predicate = 'description'; reverse=!reverse">Description</a></td>
+                    <td><a href="" ng-click="predicate = 'price'; reverse=!reverse">Price</a></td>
+                    <td><a>Action</a></td>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="car in cars | filter: carfilter | orderBy:predicate:reverse">
+                    <td>{{car.id}}</td>
+                    <td>{{car.year }}</td>
+                    <td>{{car.registered | date }}</td>
+                    <td>{{car.make}}</td>
+                    <td>{{car.model}}</td>
+                    <td>{{car.description}}</td>
+                    <td>{{car.price | currency}}</td>
+                    <td>
+                        <a href="#" ng-click="edit(car)">edit</a> |
+                        <a href="#" ng-click="delete(car)">delete</a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="col-md-3" style="border: thin lightblue solid; border-radius: 5px;padding: 1em;">
+
+            <form class="form-horizontal" ng-submit="addCar()" novalidate>
+                <div class="form-group">
+                    Year: <input type="text"  class="form-control" name="year" ng-model="newCar.year"/>
+                    <br/>
+                    Registered: <input type="date" date-format="MM/dd/yyyy" name="registered"
+                                       ng-model="newCar.registered" />
+                    <br/>
+                    Make: <input type="text" ng-model="newCar.make" />
+                    <br/>
+                    Model: <input type="text" ng-model="newCar.model" />
+                    <br/>
+                    Description: <input type="text" ng-model="newCar.description" />
+                    <br/>
+                    Price: <input type="text" ng-model="newCar.price"/>
+                    <input type="submit" value="Submit"/>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+</div>
+</body>
+</html>
