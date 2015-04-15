@@ -1,0 +1,12 @@
+<h3>Person List</h3>
+
+<div class="col-sm-4">
+    <table class="table table-striped">
+        <thead><th>Name</th><th>Details</th></thead>
+        <tbody>
+        <tr ng-repeat="person in persons">
+            <td>{{person.name}}</td>
+            <td><a href="#/details/{{person.id}}">{{person.id}}</a></td>
+        </tr>
+        </tbody>
+    </table>
