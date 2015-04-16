@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html ng-app="DemoApp" >
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>{{title}}</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
+
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-route/angular-route.js"></script>
+    <script src="app.js"></script>
+</head>
+<body>
+ <div class="container">
+     <h1>{{title}}</h1>
+
+     <ul class="nav nav-pills">
+         <li role="presentation"><a href="#/">All Cars</a></li>
+         <li role="presentation"><a href="#/addCar">New Car</a></li>
+     </ul>
+
+     <div ng-view></div>
+ </div>
+</body>
+</html>
