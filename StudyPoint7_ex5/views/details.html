@@ -1,0 +1,102 @@
+
+<div class="row">
+
+   <div class="col-md-7">
+
+       <h4>Details for {{user.first +' '+ user.last}}</h4>
+       <table>
+           <tr>
+               <td>
+                   <label for="gender" class="control-label col-xs-3" ><span class="label label-info">Gender</span></label>
+               </td>
+               <td>
+                   <p id="gender">{{user.gender}}</p>
+               </td>
+           </tr>
+           <tr>
+               <td>
+                   <label for="first" class="control-label col-xs-3" ><span class="label label-info">First Name</span></label>
+               </td>
+               <td>
+                   <p id="first">{{user.first}}</p>
+               </td>
+           </tr>
+           <tr>
+               <td>
+                   <label for="last" class="control-label col-xs-3" ><span class="label label-info">Last Name</span></label>
+               </td>
+               <td>
+                   <p id="last">{{user.last}}</p>
+               </td>
+           </tr>
+       </table>
+       <hr/>
+       <table>
+           <tr>
+               <td>
+                   <label for="street" class="control-label col-xs-3" ><span class="label label-info">Street</span></label>
+               </td>
+               <td>
+                   <p id="street">{{user.street}}</p>
+               </td>
+           </tr>
+           <tr>
+               <td>
+                   <label for="city" class="control-label col-xs-3" ><span class="label label-info">City</span></label>
+               </td>
+               <td>
+                   <p id="city">{{user.city}}</p>
+               </td>
+           </tr>
+           <tr>
+               <td>
+                   <label for="zip" class="control-label col-xs-3" ><span class="label label-info">Zip</span></label>
+               </td>
+               <td>
+                   <p id="zip">{{user.zip}}</p>
+               </td>
+           </tr>
+       </table>
+       <hr/>
+       <table>
+           <tr>
+               <td>
+                   <label for="phone" class="control-label col-xs-3" ><span class="label label-info">Phone</span></label>
+               </td>
+               <td>
+                   <p id="phone">{{user.phone}}</p>
+               </td>
+           </tr>
+           <tr>
+               <td>
+                   <label for="cell" class="control-label col-xs-3" ><span class="label label-info">Cell</span></label>
+               </td>
+               <td>
+                   <p id="cell">{{user.cell}}</p>
+               </td>
+           </tr>
+           <tr>
+               <td>
+                   <label for="email" class="control-label col-xs-3" ><span class="label label-info">Email</span></label>
+               </td>
+               <td>
+                   <p id="email">{{user.email}}</p>
+               </td>
+           </tr>
+       </table>
+
+   </div>
+
+   <div class="col-md-5">
+
+       <img src="{{user.picture.large}}" alt="{{user.email}}"/>
+
+   </div>
+
+
+
+
+</div>
+<form action="#/">
+    <button class="btn btn-danger" type="submit">Back</button>
+</form>

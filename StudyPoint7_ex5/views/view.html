@@ -1,0 +1,18 @@
+<div row>
+    <div class="col-md-9">
+        <table class="table">
+            <thead>
+            <th></th>
+            <th>Name</th>
+            <th>Details</th>
+            </thead>
+            <tbody>
+            <tr ng-repeat="user in users">
+                <td><img src="{{user.picture.thumbnail}}" alt="{{user.first}}"/></td>
+                <td>{{user.first + ' ' + user.last}}</td>
+                <td><a href="#/detail/{{user.email}}">Details</a></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
