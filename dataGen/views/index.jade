@@ -1,0 +1,16 @@
+extends layout
+
+block content
+  h2 The Datagenerator
+  div
+      input#amount.form-control(placeholder="Enter amount:")
+      input#data.form-control(placeholder="DATA: fname, lname, street, city, zip")
+      button#search.btn.btn-default search
+  hr
+  h3 Overview of generated data:
+  table.table.table-striped
+      thead.thData
+      tbody#tbody
+
+  script
+      include javascript/dataHandler.js
